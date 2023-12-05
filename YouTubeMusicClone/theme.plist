@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>theme</key>
+		<string>행복한 기분</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>운동</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>에너지 충전</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>휴식</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>로맨스</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>집중</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>출퇴근길</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>파티</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>슬픔</string>
+	</dict>
+	<dict>
+		<key>theme</key>
+		<string>잠잘 때</string>
+	</dict>
+</array>
+</plist>
