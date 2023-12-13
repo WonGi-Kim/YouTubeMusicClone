@@ -14,22 +14,34 @@ import GoogleSignInSwift
 
 struct LoginView: View {
     @ObservedObject var mainViewModel = MainViewModel()
+    @State var userToken : String = ""
     
     var body: some View {
         GoogleSignInButton(
             scheme: .light,
             style: .wide,
             action: {
-                mainViewModel.signInGoogle()
+                DispatchQueue.main.async {
+                    mainViewModel.signInGoogle { result in
+                        switch result {
+                        case .success(let token):
+                            userToken = token
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    
+                }
             }
         )
         .frame(width: 300, height: 60, alignment: .center)
         .fullScreenCover(isPresented: $mainViewModel.isShowFullScreenCover) {
-            MainView()
+            MainView(userTokenOnMainView: $userToken)
         }
     }
 }
-
+/**
 #Preview {
     LoginView()
 }
+*/

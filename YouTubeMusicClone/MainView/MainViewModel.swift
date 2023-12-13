@@ -31,13 +31,17 @@ class MainViewModel: ObservableObject {
     @Published var decodedData: DecodableModel?
     @Published var isShowFullScreenCover: Bool = false
     
-    @Published var quickSelections: [QuickSelectItemInfo] = []{
+    @Published var userToken: String = ""
+    @Published var plaYListId: String = ""
+    
+    @Published var smallListItemSections: [SmallListItemInfo] = []{
         willSet {
             objectWillChange.send()
         }
     }
     
-    @Published var quickSelection: QuickSelectItemInfo = QuickSelectItemInfo(
+    
+    @Published var smallListItemSection: SmallListItemInfo = SmallListItemInfo(
         id: "",
         title: "",
         thumbnailUrl: "",
@@ -55,7 +59,7 @@ class MainViewModel: ObservableObject {
     }
     
     //  MARK: YouTubeApi
-    func callYoutubeApi(accessToken: GIDToken, completion: @escaping (Result<DecodableModel, YouTubeAPIError>) -> Void) {
+    func callYoutubeApi(accessToken: String ,playListId: String ,completion: @escaping (Result<DecodableModel, YouTubeAPIError>) -> Void) {
         
         let apiUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems"
         let apiKey = "AIzaSyBfEXIEnPr4S2YDAMREcp_KJmDjhsPnaC0"
@@ -63,13 +67,13 @@ class MainViewModel: ObservableObject {
         
         let parameters: [String: Any] = [
             "part": "snippet",
-            "maxResults": "2",
-            "playlistId": "PLFgquLnL59alGJcdc0BEZJb2p7IgkL0Oe",
+            "maxResults": "20",
+            "playlistId": playListId,
             "key": apiKey
         ]
 
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(accessToken.tokenString)",
+            "Authorization": "Bearer \(accessToken)",
             "Authorization": "https://www.googleapis.com/auth/youtube.force-ssl",
             "Accept": "application/json"
         ]
@@ -79,8 +83,7 @@ class MainViewModel: ObservableObject {
             .responseDecodable(of: DecodableModel.self) { response in
                 switch response.result {
                 case .success(let value):
-                    // 성공적으로 데이터를 얻었을 때의 처리
-                    self.quickselectInfo(value: value)
+                    completion(.success(value))
                 case .failure(let error):
                     // 에러가 발생했을 때의 처리
                     print("AF.request.failure.value: \(error)")
@@ -101,7 +104,7 @@ class MainViewModel: ObservableObject {
     }
    
     //  MARK: SignInGoogle
-    func signInGoogle() {
+    func signInGoogle(completion: @escaping (Result<String, Error>) -> Void) {
         
         print("로그인 버튼 눌림")
         
@@ -120,17 +123,8 @@ class MainViewModel: ObservableObject {
             guard let user = user?.user,
                   let idToken = user.idToken else { return }
             
+            //  Token을 함수 외부로 처리하여 함수 종속성 약화
             let accessToken = user.accessToken
-            
-            //  엑세스 토큰을 통해 api 호출
-            self.callYoutubeApi(accessToken: accessToken) { result in
-                switch result {
-                case .success(let data):
-                    print("Api Called: \(data)")
-                case .failure(let error):
-                    print("Api Error: \(error)")
-                }
-            }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
             
@@ -139,42 +133,49 @@ class MainViewModel: ObservableObject {
                     print(error.localizedDescription)
                 }
                 
-                guard let user = res?.user else { return }
+                guard let user = res?.user else {
+                    completion(.failure(YouTubeAPIError.invalidResponse))
+                    return
+                }
                 
                 self.isShowFullScreenCover = true
+                
+                let userToken = accessToken.tokenString
+                completion(.success(userToken))
             }
         }
     }
     
     //  MARK: QuickselectInfo 구성
-    func quickselectInfo(value: DecodableModel) {
+    func smallListSection(value: DecodableModel, completion: @escaping (Result<[SmallListItemInfo], Error>) -> Void) {
         //  옵셔널 체이닝 진행
         let data = value
         
         for playlistItem in data.items {
             
-            quickSelection.id = playlistItem.id
+            smallListItemSection.id = playlistItem.id
           
             let snippet = playlistItem.snippet
             let title = snippet.title
-            quickSelection.title = title
+            smallListItemSection.title = title
             
             let thumbnails = snippet.thumbnails
             let defaultThumbnail = thumbnails.defaultThumbnail
-            quickSelection.thumbnailUrl = defaultThumbnail.url
-            quickSelection.thumbnailWidth = Float(defaultThumbnail.width)
-            quickSelection.thumbnailHeight = Float(defaultThumbnail.height)
+            smallListItemSection.thumbnailUrl = defaultThumbnail.url
+            smallListItemSection.thumbnailWidth = Float(defaultThumbnail.width)
+            smallListItemSection.thumbnailHeight = Float(defaultThumbnail.height)
             
             let titleOwner = snippet.videoOwnerChannelTitle
             if let index = titleOwner.range(of: " - Topic") {
-                quickSelection.owner = titleOwner[..<index.lowerBound].trimmingCharacters(in: .whitespacesAndNewlines)
+                smallListItemSection.owner = titleOwner[..<index.lowerBound].trimmingCharacters(in: .whitespacesAndNewlines)
             } else {
                 print("error")
             }
             
-            quickSelections.append(quickSelection)
+            smallListItemSections.append(smallListItemSection)
         }
-        print("quickSelections:\(quickSelections)")
+        completion(.success(smallListItemSections))
+        //print("quickSelections:\(quickSelections)")
     }
 }
 

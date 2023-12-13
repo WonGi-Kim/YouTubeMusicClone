@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B23C77C52B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77C42B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift */; };
-		B23C77C92B1DA18D00FB5E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23C77C82B1DA18D00FB5E34 /* Assets.xcassets */; };
 		B23C77CC2B1DA18D00FB5E34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23C77CB2B1DA18D00FB5E34 /* Preview Assets.xcassets */; };
 		B23C77D62B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77D52B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift */; };
 		B23C77E02B1DA18E00FB5E34 /* YouTubeMusicCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77DF2B1DA18E00FB5E34 /* YouTubeMusicCloneUITests.swift */; };
@@ -61,6 +60,11 @@
 		B266CA622B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */; };
 		B27114512B1F02870097A8FD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B27114502B1F02870097A8FD /* Alamofire */; };
 		B274E76B2B244C1500B7E6BA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B274E76A2B244C1500B7E6BA /* Kingfisher */; };
+		B274E7712B2839B100B7E6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B274E7702B2839B100B7E6BA /* Assets.xcassets */; };
+		B2CEE0252B297F3A00ECA146 /* ShortsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE0242B297F3A00ECA146 /* ShortsView.swift */; };
+		B2CEE0292B29801000ECA146 /* ShortsSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */; };
+		B2CEE02B2B29808000ECA146 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */; };
+		B2CEE02D2B29818800ECA146 /* SmallListItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +87,6 @@
 /* Begin PBXFileReference section */
 		B23C77C12B1DA18C00FB5E34 /* YouTubeMusicClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeMusicClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23C77C42B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicCloneApp.swift; sourceTree = "<group>"; };
-		B23C77C82B1DA18D00FB5E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23C77CB2B1DA18D00FB5E34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B23C77D12B1DA18E00FB5E34 /* YouTubeMusicCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouTubeMusicCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23C77D52B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicCloneTests.swift; sourceTree = "<group>"; };
@@ -102,6 +105,11 @@
 		B266C9D42B21A61000CC1089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectItemInfo.swift; sourceTree = "<group>"; };
+		B274E7702B2839B100B7E6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2CEE0242B297F3A00ECA146 /* ShortsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsView.swift; sourceTree = "<group>"; };
+		B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsSelectItemInfo.swift; sourceTree = "<group>"; };
+		B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListItemInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +194,8 @@
 			children = (
 				B23C77EE2B1DA1AD00FB5E34 /* MainView */,
 				B23C77C42B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift */,
+				B274E7702B2839B100B7E6BA /* Assets.xcassets */,
 				B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */,
-				B23C77C82B1DA18D00FB5E34 /* Assets.xcassets */,
 				B23C78012B1EECDB00FB5E34 /* theme.plist */,
 				B266C9D42B21A61000CC1089 /* Info.plist */,
 				B23C77CA2B1DA18D00FB5E34 /* Preview Content */,
@@ -237,9 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				B23C77F62B1DA24000FB5E34 /* HomeView.swift */,
-				B23C77F82B1DA26700FB5E34 /* QuickSelectView.swift */,
+				B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */,
+				B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */,
+				B2CEE0262B297F8800ECA146 /* Quick */,
+				B2CEE0272B297FAD00ECA146 /* Shorts */,
 				B23C77FA2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift */,
-				B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -249,6 +259,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2CEE0262B297F8800ECA146 /* Quick */ = {
+			isa = PBXGroup;
+			children = (
+				B23C77F82B1DA26700FB5E34 /* QuickSelectView.swift */,
+				B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */,
+			);
+			path = Quick;
+			sourceTree = "<group>";
+		};
+		B2CEE0272B297FAD00ECA146 /* Shorts */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEE0242B297F3A00ECA146 /* ShortsView.swift */,
+				B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */,
+			);
+			path = Shorts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,8 +426,8 @@
 			files = (
 				B23C77CC2B1DA18D00FB5E34 /* Preview Assets.xcassets in Resources */,
 				B266CA5C2B23017800CC1089 /* GoogleService-Info.plist in Resources */,
+				B274E7712B2839B100B7E6BA /* Assets.xcassets in Resources */,
 				B23C78022B1EECDB00FB5E34 /* theme.plist in Resources */,
-				B23C77C92B1DA18D00FB5E34 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +460,11 @@
 				B266C9D12B2199B200CC1089 /* LoginView.swift in Sources */,
 				B23C77FD2B1DB00400FB5E34 /* DecodableModel.swift in Sources */,
 				B23C77F02B1DA1C800FB5E34 /* MainView.swift in Sources */,
+				B2CEE0252B297F3A00ECA146 /* ShortsView.swift in Sources */,
+				B2CEE0292B29801000ECA146 /* ShortsSelectItemInfo.swift in Sources */,
+				B2CEE02B2B29808000ECA146 /* HomeViewModel.swift in Sources */,
 				B266CA602B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */,
+				B2CEE02D2B29818800ECA146 /* SmallListItemInfo.swift in Sources */,
 				B23C77F42B1DA21200FB5E34 /* TopView.swift in Sources */,
 				B23C77F72B1DA24000FB5E34 /* HomeView.swift in Sources */,
 				B23C77F22B1DA1FB00FB5E34 /* MainViewModel.swift in Sources */,

@@ -10,11 +10,12 @@ import GoogleSignInSwift
 
 struct MainView: View {
     @ObservedObject private var mainViewModel = MainViewModel()
+    @Binding var userTokenOnMainView : String
     
     var body: some View {
         TabView(selection: .constant(1),
                 content:  {
-            HomeView(mainViewModel: mainViewModel)
+            HomeView(userTokenOnHomeView: $userTokenOnMainView)
             .tabItem {
                 Image(systemName: "music.note.house")
                 Text("홈")
@@ -40,12 +41,13 @@ struct MainView: View {
         .padding(10)
         
         .onAppear {
-            print("MainView에서 mainViewModel.quickSelections: \(mainViewModel.quickSelections)")
+            
         }
     }
-        
 }
-
+/**
 #Preview {
-    MainView()
+    @State var userTokenOnMainView : String = ""
+    MainView(userTokenOnMainView: $userTokenOnMainView)
 }
+*/

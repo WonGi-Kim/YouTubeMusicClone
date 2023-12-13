@@ -10,7 +10,7 @@ import Foundation
 struct DecodableModel: Decodable {
     let kind: String
     let etag: String
-    let nextPageToken: String
+    let nextPageToken: String?
     let items: [PlaylistItem]
 }
 

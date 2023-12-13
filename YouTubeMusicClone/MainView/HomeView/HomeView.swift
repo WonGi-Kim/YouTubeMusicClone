@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var mainViewModel: MainViewModel // 타입이 아닌 인스턴스를 저장할 프로퍼티
-        
-    init(mainViewModel: MainViewModel) {
-        self.mainViewModel = mainViewModel
-    }
+    @ObservedObject var mainViewModel = MainViewModel()
     
     @State var themeListHomeView : [String] = []
+    
+    @Binding var userTokenOnHomeView : String
     
     var body: some View {
         ScrollView {
@@ -26,18 +24,22 @@ struct HomeView: View {
                 ThemeHorizontalScrollView(themeListHomeView: $themeListHomeView)
                 
                 //  빠른 선곡 탭
-                QuickSelectView(mainViewModel: mainViewModel)
+                QuickSelectView(userTokenOnQuickSelectView: $userTokenOnHomeView)
+                
+                //  Shorts에서 들은 음악 탭
+                ShortsView(userTokenOnShortsView: $userTokenOnHomeView)
                 
             }
         }
         .onAppear {
             mainViewModel.loadThemeList()
             themeListHomeView = mainViewModel.themeArray
-            print("HoemView에서 mainViewModel.quickSelections: \(mainViewModel.quickSelections)")
         }
     }
 }
-
+/**
 #Preview {
-    HomeView(mainViewModel: MainViewModel())
+    @State var userTokenOnHomeView: String = ""
+    HomeView(userTokenOnHomeView: $userTokenOnHomeView)
 }
+*/

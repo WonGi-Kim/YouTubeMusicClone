@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
+import Swift
+
+struct SmallListItemInfo: Decodable{
+    var id: String
+    var title: String
+    var thumbnailUrl: String
+    var thumbnailWidth: Float
+    var thumbnailHeight: Float
+    var owner: String
+}
