@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DecodableModel: Decodable {
+struct PlayListItemsDecodableModel: Decodable {
     let kind: String
     let etag: String
     let nextPageToken: String?
@@ -40,7 +40,7 @@ struct Thumbnails: Decodable {
     let medium: Thumbnail
     let high: Thumbnail
     let standard: Thumbnail
-    let maxres: Thumbnail
+    let maxres: Thumbnail?
 
     private enum CodingKeys: String, CodingKey {
         case defaultThumbnail = "default"
