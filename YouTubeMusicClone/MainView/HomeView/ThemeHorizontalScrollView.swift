@@ -26,8 +26,8 @@ struct ThemeHorizontalScrollView: View {
                     }
                 }
             }
-            .frame(height: 80)
-            .padding(.top, -15)
+            .background(Color.black)
+            //.frame(height: 80)
         }
     }
 }

@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 class MusicPlayerViewModel: ObservableObject {
-    
-    @State var initial: String = ""
+    @Published var musicInfo: SmallListItemInfo?
+
+    func updateMusicInfo(_ info: SmallListItemInfo) {
+        musicInfo = info
+    }
 }

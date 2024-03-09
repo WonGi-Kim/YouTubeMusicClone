@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22DAB742B2C26CF009350F0 /* GroupBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB732B2C26CF009350F0 /* GroupBoxView.swift */; };
+		B22DAB762B2C3186009350F0 /* GroupBoxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB752B2C3186009350F0 /* GroupBoxInfo.swift */; };
+		B22DAB782B2C3284009350F0 /* PlayListDecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB772B2C3284009350F0 /* PlayListDecodableModel.swift */; };
+		B22DAB7C2B2D7BA0009350F0 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB7B2B2D7BA0009350F0 /* MusicPlayerViewModel.swift */; };
+		B22DAB802B2D8329009350F0 /* QuickSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB7F2B2D8329009350F0 /* QuickSelectViewModel.swift */; };
+		B22DAB862B2D8FE9009350F0 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DAB852B2D8FE9009350F0 /* MusicPlayerView.swift */; };
 		B23C77C52B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77C42B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift */; };
 		B23C77CC2B1DA18D00FB5E34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23C77CB2B1DA18D00FB5E34 /* Preview Assets.xcassets */; };
 		B23C77D62B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77D52B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift */; };
@@ -18,7 +24,7 @@
 		B23C77F72B1DA24000FB5E34 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77F62B1DA24000FB5E34 /* HomeView.swift */; };
 		B23C77F92B1DA26700FB5E34 /* QuickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77F82B1DA26700FB5E34 /* QuickSelectView.swift */; };
 		B23C77FB2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77FA2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift */; };
-		B23C77FD2B1DB00400FB5E34 /* DecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77FC2B1DB00400FB5E34 /* DecodableModel.swift */; };
+		B23C77FD2B1DB00400FB5E34 /* PlayListItemsDecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C77FC2B1DB00400FB5E34 /* PlayListItemsDecodableModel.swift */; };
 		B23C78022B1EECDB00FB5E34 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23C78012B1EECDB00FB5E34 /* theme.plist */; };
 		B266C9BF2B21907E00CC1089 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B266C9BE2B21907E00CC1089 /* GoogleSignIn */; };
 		B266C9C12B21907E00CC1089 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B266C9C02B21907E00CC1089 /* GoogleSignInSwift */; };
@@ -55,16 +61,16 @@
 		B266CA5C2B23017800CC1089 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */; };
 		B266CA5D2B23017800CC1089 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */; };
 		B266CA5E2B23017800CC1089 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */; };
-		B266CA602B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */; };
-		B266CA612B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */; };
-		B266CA622B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */; };
 		B27114512B1F02870097A8FD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B27114502B1F02870097A8FD /* Alamofire */; };
 		B274E76B2B244C1500B7E6BA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B274E76A2B244C1500B7E6BA /* Kingfisher */; };
 		B274E7712B2839B100B7E6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B274E7702B2839B100B7E6BA /* Assets.xcassets */; };
 		B2CEE0252B297F3A00ECA146 /* ShortsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE0242B297F3A00ECA146 /* ShortsView.swift */; };
-		B2CEE0292B29801000ECA146 /* ShortsSelectItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */; };
 		B2CEE02B2B29808000ECA146 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */; };
 		B2CEE02D2B29818800ECA146 /* SmallListItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */; };
+		B2CEE0342B2AD80E00ECA146 /* ListenAgainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEE0332B2AD80E00ECA146 /* ListenAgainView.swift */; };
+		B2D9792F2B30105100F2F08E /* GroupBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D9792E2B30105100F2F08E /* GroupBoxViewModel.swift */; };
+		B2D979312B3012BC00F2F08E /* ListenAgainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D979302B3012BC00F2F08E /* ListenAgainViewModel.swift */; };
+		B2D979332B3014B600F2F08E /* ShortsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D979322B3014B600F2F08E /* ShortsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B22DAB732B2C26CF009350F0 /* GroupBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxView.swift; sourceTree = "<group>"; };
+		B22DAB752B2C3186009350F0 /* GroupBoxInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxInfo.swift; sourceTree = "<group>"; };
+		B22DAB772B2C3284009350F0 /* PlayListDecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListDecodableModel.swift; sourceTree = "<group>"; };
+		B22DAB7B2B2D7BA0009350F0 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		B22DAB7F2B2D8329009350F0 /* QuickSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectViewModel.swift; sourceTree = "<group>"; };
+		B22DAB852B2D8FE9009350F0 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		B23C77C12B1DA18C00FB5E34 /* YouTubeMusicClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeMusicClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23C77C42B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicCloneApp.swift; sourceTree = "<group>"; };
 		B23C77CB2B1DA18D00FB5E34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -99,17 +111,19 @@
 		B23C77F62B1DA24000FB5E34 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B23C77F82B1DA26700FB5E34 /* QuickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectView.swift; sourceTree = "<group>"; };
 		B23C77FA2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHorizontalScrollView.swift; sourceTree = "<group>"; };
-		B23C77FC2B1DB00400FB5E34 /* DecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableModel.swift; sourceTree = "<group>"; };
+		B23C77FC2B1DB00400FB5E34 /* PlayListItemsDecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListItemsDecodableModel.swift; sourceTree = "<group>"; };
 		B23C78012B1EECDB00FB5E34 /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
 		B266C9D02B2199B200CC1089 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B266C9D42B21A61000CC1089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B266CA5B2B23017800CC1089 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectItemInfo.swift; sourceTree = "<group>"; };
 		B274E7702B2839B100B7E6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2CEE0242B297F3A00ECA146 /* ShortsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsView.swift; sourceTree = "<group>"; };
-		B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsSelectItemInfo.swift; sourceTree = "<group>"; };
 		B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListItemInfo.swift; sourceTree = "<group>"; };
+		B2CEE0332B2AD80E00ECA146 /* ListenAgainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAgainView.swift; sourceTree = "<group>"; };
+		B2D9792E2B30105100F2F08E /* GroupBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxViewModel.swift; sourceTree = "<group>"; };
+		B2D979302B3012BC00F2F08E /* ListenAgainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAgainViewModel.swift; sourceTree = "<group>"; };
+		B2D979322B3014B600F2F08E /* ShortsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +182,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B22DAB722B2C26AA009350F0 /* GroupBox */ = {
+			isa = PBXGroup;
+			children = (
+				B22DAB732B2C26CF009350F0 /* GroupBoxView.swift */,
+				B22DAB752B2C3186009350F0 /* GroupBoxInfo.swift */,
+				B2D9792E2B30105100F2F08E /* GroupBoxViewModel.swift */,
+			);
+			path = GroupBox;
+			sourceTree = "<group>";
+		};
+		B22DAB792B2D7B6A009350F0 /* DecodableModel */ = {
+			isa = PBXGroup;
+			children = (
+				B23C77FC2B1DB00400FB5E34 /* PlayListItemsDecodableModel.swift */,
+				B22DAB772B2C3284009350F0 /* PlayListDecodableModel.swift */,
+			);
+			path = DecodableModel;
+			sourceTree = "<group>";
+		};
+		B22DAB7A2B2D7B82009350F0 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B22DAB7B2B2D7BA0009350F0 /* MusicPlayerViewModel.swift */,
+				B22DAB852B2D8FE9009350F0 /* MusicPlayerView.swift */,
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
 		B23C77B82B1DA18C00FB5E34 = {
 			isa = PBXGroup;
 			children = (
@@ -234,8 +276,9 @@
 				B23C77EF2B1DA1C800FB5E34 /* MainView.swift */,
 				B23C77F12B1DA1FB00FB5E34 /* MainViewModel.swift */,
 				B23C77F32B1DA21200FB5E34 /* TopView.swift */,
-				B23C77FC2B1DB00400FB5E34 /* DecodableModel.swift */,
 				B266C9D02B2199B200CC1089 /* LoginView.swift */,
+				B22DAB7A2B2D7B82009350F0 /* MusicPlayer */,
+				B22DAB792B2D7B6A009350F0 /* DecodableModel */,
 				B23C77F52B1DA21A00FB5E34 /* HomeView */,
 			);
 			path = MainView;
@@ -246,10 +289,12 @@
 			children = (
 				B23C77F62B1DA24000FB5E34 /* HomeView.swift */,
 				B2CEE02A2B29808000ECA146 /* HomeViewModel.swift */,
+				B23C77FA2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift */,
 				B2CEE02C2B29818800ECA146 /* SmallListItemInfo.swift */,
 				B2CEE0262B297F8800ECA146 /* Quick */,
+				B2CEE0302B2AD43900ECA146 /* ListenAgain */,
 				B2CEE0272B297FAD00ECA146 /* Shorts */,
-				B23C77FA2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift */,
+				B22DAB722B2C26AA009350F0 /* GroupBox */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -265,7 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				B23C77F82B1DA26700FB5E34 /* QuickSelectView.swift */,
-				B266CA5F2B242F4300CC1089 /* QuickSelectItemInfo.swift */,
+				B22DAB7F2B2D8329009350F0 /* QuickSelectViewModel.swift */,
 			);
 			path = Quick;
 			sourceTree = "<group>";
@@ -274,9 +319,18 @@
 			isa = PBXGroup;
 			children = (
 				B2CEE0242B297F3A00ECA146 /* ShortsView.swift */,
-				B2CEE0282B29801000ECA146 /* ShortsSelectItemInfo.swift */,
+				B2D979322B3014B600F2F08E /* ShortsViewModel.swift */,
 			);
 			path = Shorts;
+			sourceTree = "<group>";
+		};
+		B2CEE0302B2AD43900ECA146 /* ListenAgain */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEE0332B2AD80E00ECA146 /* ListenAgainView.swift */,
+				B2D979302B3012BC00F2F08E /* ListenAgainViewModel.swift */,
+			);
+			path = ListenAgain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,18 +508,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22DAB742B2C26CF009350F0 /* GroupBoxView.swift in Sources */,
+				B2D9792F2B30105100F2F08E /* GroupBoxViewModel.swift in Sources */,
+				B22DAB782B2C3284009350F0 /* PlayListDecodableModel.swift in Sources */,
+				B22DAB7C2B2D7BA0009350F0 /* MusicPlayerViewModel.swift in Sources */,
 				B23C77F92B1DA26700FB5E34 /* QuickSelectView.swift in Sources */,
+				B22DAB862B2D8FE9009350F0 /* MusicPlayerView.swift in Sources */,
 				B23C77C52B1DA18C00FB5E34 /* YouTubeMusicCloneApp.swift in Sources */,
 				B23C77FB2B1DA28600FB5E34 /* ThemeHorizontalScrollView.swift in Sources */,
+				B22DAB762B2C3186009350F0 /* GroupBoxInfo.swift in Sources */,
+				B2D979312B3012BC00F2F08E /* ListenAgainViewModel.swift in Sources */,
 				B266C9D12B2199B200CC1089 /* LoginView.swift in Sources */,
-				B23C77FD2B1DB00400FB5E34 /* DecodableModel.swift in Sources */,
+				B23C77FD2B1DB00400FB5E34 /* PlayListItemsDecodableModel.swift in Sources */,
 				B23C77F02B1DA1C800FB5E34 /* MainView.swift in Sources */,
 				B2CEE0252B297F3A00ECA146 /* ShortsView.swift in Sources */,
-				B2CEE0292B29801000ECA146 /* ShortsSelectItemInfo.swift in Sources */,
 				B2CEE02B2B29808000ECA146 /* HomeViewModel.swift in Sources */,
-				B266CA602B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */,
+				B22DAB802B2D8329009350F0 /* QuickSelectViewModel.swift in Sources */,
+				B2CEE0342B2AD80E00ECA146 /* ListenAgainView.swift in Sources */,
 				B2CEE02D2B29818800ECA146 /* SmallListItemInfo.swift in Sources */,
 				B23C77F42B1DA21200FB5E34 /* TopView.swift in Sources */,
+				B2D979332B3014B600F2F08E /* ShortsViewModel.swift in Sources */,
 				B23C77F72B1DA24000FB5E34 /* HomeView.swift in Sources */,
 				B23C77F22B1DA1FB00FB5E34 /* MainViewModel.swift in Sources */,
 			);
@@ -475,7 +537,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B266CA612B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */,
 				B266C9D22B2199B200CC1089 /* LoginView.swift in Sources */,
 				B23C77D62B1DA18E00FB5E34 /* YouTubeMusicCloneTests.swift in Sources */,
 			);
@@ -485,7 +546,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B266CA622B242F4300CC1089 /* QuickSelectItemInfo.swift in Sources */,
 				B266C9D32B2199B200CC1089 /* LoginView.swift in Sources */,
 				B23C77E22B1DA18E00FB5E34 /* YouTubeMusicCloneUITestsLaunchTests.swift in Sources */,
 				B23C77E02B1DA18E00FB5E34 /* YouTubeMusicCloneUITests.swift in Sources */,

@@ -28,7 +28,7 @@ enum YouTubeAPIError: Error {
 class MainViewModel: ObservableObject {
     
     @Published var themeArray: [String] = []
-    @Published var decodedData: DecodableModel?
+    @Published var decodedData: PlayListItemsDecodableModel?
     @Published var isShowFullScreenCover: Bool = false
     
     @Published var userToken: String = ""
@@ -43,11 +43,19 @@ class MainViewModel: ObservableObject {
     
     @Published var smallListItemSection: SmallListItemInfo = SmallListItemInfo(
         id: "",
+        videoId: "",
         title: "",
         thumbnailUrl: "",
         thumbnailWidth: 0,
         thumbnailHeight: 0,
         owner: "")
+    
+    @Published var playListSection: GroupBoxInfo = GroupBoxInfo(
+        id: "",
+        thumbnailUrl: "",
+        channelTitle: "", 
+        title: "",
+        description: "")
     
     
     //  MARK: Plist Controll
@@ -58,12 +66,11 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    //  MARK: YouTubeApi
-    func callYoutubeApi(accessToken: String ,playListId: String ,completion: @escaping (Result<DecodableModel, YouTubeAPIError>) -> Void) {
+    //  MARK: YouTubeApi For PlayListItems
+    func callYoutubeApi(accessToken: String ,playListId: String ,completion: @escaping (Result<PlayListItemsDecodableModel, YouTubeAPIError>) -> Void) {
         
         let apiUrl = "https://youtube.googleapis.com/youtube/v3/playlistItems"
         let apiKey = "AIzaSyBfEXIEnPr4S2YDAMREcp_KJmDjhsPnaC0"
-        //let accessToken = ""
         
         let parameters: [String: Any] = [
             "part": "snippet",
@@ -80,7 +87,8 @@ class MainViewModel: ObservableObject {
 
         AF.request(apiUrl, method: .get, parameters: parameters, headers: headers)
             .validate()
-            .responseDecodable(of: DecodableModel.self) { response in
+            .responseDecodable(of: PlayListItemsDecodableModel.self) { response in
+                //debugPrint(response)
                 switch response.result {
                 case .success(let value):
                     completion(.success(value))
@@ -89,18 +97,38 @@ class MainViewModel: ObservableObject {
                     print("AF.request.failure.value: \(error)")
                 }
             }
+    }
+    
+    //  MARK: YouTubeAPI for PlayList
+    func callYouTubeApiForPlayList(accessToken: String ,playListId: String ,completion: @escaping (Result<PlayListDecodableModel, YouTubeAPIError>) -> Void) {
         
-        //  데이터 접근 방식
-        /**
-         // items 배열에 접근
-             for playlistItem in value.items {
-                 // 각각의 PlaylistItem에서 snippet 찾기
-                 let snippet = playlistItem.snippet
-                 // title 속성에 직접 접근
-                 let title = snippet.title
-                 print("Title: \(title)")
-             }
-         */
+        let apiUrl = "https://youtube.googleapis.com/youtube/v3/playlists"
+        let apiKey = "AIzaSyBfEXIEnPr4S2YDAMREcp_KJmDjhsPnaC0"
+        
+        let parameters: [String: Any] = [
+            "part": "snippet",
+            "id": playListId,
+            "key": apiKey
+        ]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)",
+            "Authorization": "https://www.googleapis.com/auth/youtube.force-ssl",
+            "Accept": "application/json"
+        ]
+        
+        AF.request(apiUrl, method: .get, parameters: parameters, headers: headers)
+            .validate()
+            .responseDecodable(of: PlayListDecodableModel.self) { response in
+                //debugPrint(response)
+                switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    // 에러가 발생했을 때의 처리
+                    print("AF.request.failure.value: \(error)")
+                }
+            }
     }
    
     //  MARK: SignInGoogle
@@ -123,7 +151,6 @@ class MainViewModel: ObservableObject {
             guard let user = user?.user,
                   let idToken = user.idToken else { return }
             
-            //  Token을 함수 외부로 처리하여 함수 종속성 약화
             let accessToken = user.accessToken
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
@@ -146,9 +173,8 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    //  MARK: QuickselectInfo 구성
-    func smallListSection(value: DecodableModel, completion: @escaping (Result<[SmallListItemInfo], Error>) -> Void) {
-        //  옵셔널 체이닝 진행
+    //  MARK: settingForInfo 구성
+    func settingForInfo(value: PlayListItemsDecodableModel, completion: @escaping (Result<[SmallListItemInfo], Error>) -> Void) {
         let data = value
         
         for playlistItem in data.items {
@@ -161,9 +187,14 @@ class MainViewModel: ObservableObject {
             
             let thumbnails = snippet.thumbnails
             let defaultThumbnail = thumbnails.defaultThumbnail
-            smallListItemSection.thumbnailUrl = defaultThumbnail.url
+            let maxres = thumbnails.maxres
+            smallListItemSection.thumbnailUrl = maxres?.url ?? defaultThumbnail.url
             smallListItemSection.thumbnailWidth = Float(defaultThumbnail.width)
             smallListItemSection.thumbnailHeight = Float(defaultThumbnail.height)
+            
+            let resourceId = snippet.resourceId
+            let videoId = resourceId.videoId
+            smallListItemSection.videoId = videoId
             
             let titleOwner = snippet.videoOwnerChannelTitle
             if let index = titleOwner.range(of: " - Topic") {
@@ -175,10 +206,30 @@ class MainViewModel: ObservableObject {
             smallListItemSections.append(smallListItemSection)
         }
         completion(.success(smallListItemSections))
-        //print("quickSelections:\(quickSelections)")
     }
-}
-
-#Preview {
-    LoginView()
+    
+    //  MARK: settingForPlayListInfo
+    func settingForPlayListInfo(value: PlayListDecodableModel, completion: @escaping(Result<GroupBoxInfo, Error>) -> Void) {
+        let data = value
+        
+        for playList in data.items {
+            playListSection.id = playList.id
+            
+            let snippet = playList.snippet
+            
+            let thumbnails = snippet.thumbnails
+            let maxres = thumbnails.maxres
+            playListSection.thumbnailUrl = maxres.url
+            
+            let title = snippet.title
+            playListSection.title = title
+            
+            let channelTitle = snippet.channelTitle
+            playListSection.channelTitle = channelTitle
+            
+            let description = snippet.description
+            playListSection.description = description
+        }
+        completion(.success(playListSection))
+    }
 }

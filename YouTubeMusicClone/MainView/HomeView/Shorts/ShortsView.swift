@@ -10,10 +10,11 @@ import SwiftUI
 struct ShortsView: View {
     @ObservedObject var mainViewModel = MainViewModel()
     @ObservedObject var homeViewModel = HomeViewModel()
+    @StateObject var shortsViewModel = ShortsViewModel()
     
     @Binding var userTokenOnShortsView : String
     
-    @State var smallListSections: [SmallListItemInfo] = []
+    //@State var smallListSections: [SmallListItemInfo] = []
     @State var playListId: String = "PLbO2kHOIx8kAyRyLARo-J-QkPps6uJ3gp"
     
     var body: some View {
@@ -38,10 +39,10 @@ struct ShortsView: View {
                 }
             }
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                    ForEach(smallListSections.indices, id: \.self) { index in
-                        homeViewModel.createCell(smallListSections: $smallListSections[index])
+                    ForEach(shortsViewModel.shortsSections.indices, id: \.self) { index in
+                        homeViewModel.createSmallSizeCell(smallListSections: $shortsViewModel.shortsSections[index], sourceView: .ShortsView)
                     }
                 }
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 10)) // Optional: 여백 조절
@@ -51,10 +52,10 @@ struct ShortsView: View {
             mainViewModel.callYoutubeApi(accessToken: userTokenOnShortsView, playListId: playListId) { result in
                 switch result {
                 case .success(let value):
-                    mainViewModel.smallListSection(value: value) { result in
+                    mainViewModel.settingForInfo(value: value) { result in
                         switch result {
                         case .success(let data):
-                            smallListSections = data
+                            shortsViewModel.shortsSections = data
                         case .failure(_):
                             print("error3")
                         }

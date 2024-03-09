@@ -9,13 +9,6 @@ import Foundation
 
 class DataManager: ObservableObject {
     
-    @Published var musicInfo: SmallListItemInfo = SmallListItemInfo(
-        id: "",
-        videoId: "",
-        title: "",
-        thumbnailUrl: "",
-        thumbnailWidth: 0,
-        thumbnailHeight: 0,
-        owner: "")
+    @Published var musicInfo: SmallListItemInfo?
     
 }

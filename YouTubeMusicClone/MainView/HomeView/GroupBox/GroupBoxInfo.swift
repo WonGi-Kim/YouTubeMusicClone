@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct GroupBoxInfo: Decodable {
+    var id: String  // GroupBoxDecodable에서
+    var thumbnailUrl: String
+    var channelTitle: String
+    var title: String
+    var description: String
+    
+}

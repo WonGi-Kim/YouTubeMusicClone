@@ -11,6 +11,7 @@ import Swift
 
 struct SmallListItemInfo: Decodable{
     var id: String
+    var videoId: String
     var title: String
     var thumbnailUrl: String
     var thumbnailWidth: Float
